@@ -80,25 +80,25 @@ body::after{
 
 .posts-grid{
   width:92%;
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
 
   display:grid;
 
   grid-template-columns:
-  repeat(auto-fit,minmax(240px,260px));
+  repeat(auto-fit,300px);
 
   justify-content:center;
 
-  gap:22px;
+  gap:25px;
 
   padding-bottom:70px;
 }
-
 /* CARD */
 
 .card{
   position:relative;
+
   background:
   linear-gradient(
     145deg,
@@ -112,7 +112,8 @@ body::after{
 
   padding:22px;
 
-  height:320px;
+  width:300px;
+  height:400px;
 
   overflow:hidden;
 
@@ -127,7 +128,7 @@ body::after{
   box-shadow:
   0 0 15px rgba(0,255,255,0.06);
 }
-
+  
 .card::before{
   content:"";
   position:absolute;
