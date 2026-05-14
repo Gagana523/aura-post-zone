@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AURA CYBER LAB | LOGIN</title>
+<title>AURA LOGIN</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,216 +21,119 @@
 }
 
 body{
-
-  background:#050816;
-
-  color:white;
-
+  background:#070816;
   font-family:'Poppins',sans-serif;
-
   min-height:100vh;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   overflow:hidden;
+  color:white;
 }
 
-/* BACKGROUND */
-
 body::before{
-
   content:"";
-
   position:fixed;
   inset:0;
-
   background:
   linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
   linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
   background-size:40px 40px;
-
   z-index:-2;
 }
 
 body::after{
-
   content:"";
-
   position:fixed;
   inset:0;
-
   background:
   radial-gradient(circle at top left,#00ffee22,transparent 30%),
   radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
-
   z-index:-1;
 }
 
-/* LOGIN BOX */
-
 .login-box{
-
-  width:95%;
+  width:100%;
   max-width:430px;
-
-  background:rgba(12,15,35,0.88);
-
+  background:rgba(15,18,40,0.88);
   border:1px solid rgba(255,255,255,0.08);
-
   border-radius:30px;
-
-  padding:45px 35px;
-
-  backdrop-filter:blur(16px);
-
-  box-shadow:
-  0 0 30px rgba(0,255,255,0.08);
+  padding:40px 30px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 30px rgba(0,255,255,0.08);
 }
-
-/* LOGO */
 
 .logo{
-
   text-align:center;
-
-  margin-bottom:40px;
-}
-
-.logo h1{
-
-  font-size:42px;
-
+  font-size:40px;
   font-family:'Orbitron',sans-serif;
-
-  color:#00ff88;
-
+  font-weight:800;
+  color:#00ffae;
   text-shadow:
-  0 0 10px #00ff88,
-  0 0 25px #00ff88;
+  0 0 10px #00ffae,
+  0 0 25px #00ffae;
+  margin-bottom:12px;
 }
 
-.logo p{
-
-  margin-top:12px;
-
-  color:#9ca3c9;
-
+.subtitle{
+  text-align:center;
+  color:#9ba3d9;
+  letter-spacing:2px;
   font-size:13px;
-
-  letter-spacing:3px;
+  margin-bottom:35px;
 }
 
-/* FORM */
-
-.form-group{
-
+.input-box{
   margin-bottom:22px;
 }
 
-label{
-
+.input-box label{
   display:block;
-
   margin-bottom:10px;
-
-  color:#d5d8ff;
-
+  color:#cdd3ff;
   font-size:14px;
 }
 
-input{
-
+.input-box input{
   width:100%;
-
-  background:#0a1026;
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  border-radius:18px;
-
-  padding:18px;
-
-  color:white;
-
-  font-size:15px;
-
+  padding:16px;
+  border:none;
   outline:none;
-
-  transition:0.3s;
+  border-radius:18px;
+  background:#10142b;
+  color:white;
+  border:1px solid rgba(255,255,255,0.08);
+  font-size:15px;
 }
 
-input:focus{
-
+.input-box input:focus{
   border-color:#00ffee;
-
-  box-shadow:
-  0 0 15px rgba(0,255,255,0.2);
+  box-shadow:0 0 15px rgba(0,255,255,0.2);
 }
-
-/* BUTTON */
 
 .login-btn{
-
   width:100%;
-
-  border:none;
-
   padding:18px;
-
+  border:none;
   border-radius:20px;
-
-  font-size:15px;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  margin-top:10px;
-
-  background:
-  linear-gradient(90deg,#00ffee,#ff77ff);
-
+  background:linear-gradient(90deg,#00f7ff,#ff77ff);
   color:#111;
-
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
   transition:0.3s;
 }
 
 .login-btn:hover{
-
-  transform:scale(1.02);
-
-  box-shadow:
-  0 0 20px rgba(0,255,255,0.35);
+  transform:scale(1.03);
+  box-shadow:0 0 20px #00ffee;
 }
 
-/* STATUS */
-
-.status{
-
-  margin-top:22px;
-
+.error{
+  margin-top:18px;
   text-align:center;
-
+  color:#ff5b8f;
   font-size:14px;
-
-  color:#00ff88;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .logo h1{
-    font-size:34px;
-  }
-
-  .login-box{
-    padding:35px 25px;
-  }
-
 }
 
 </style>
@@ -238,159 +141,76 @@ input:focus{
 </head>
 <body>
 
-<!-- LOGIN BOX -->
-
 <div class="login-box">
 
-  <!-- LOGO -->
-
   <div class="logo">
-
-    <h1>AURA CYBER LAB</h1>
-
-    <p>
-      ADMIN LOGIN SYSTEM
-    </p>
-
+    AURA LOGIN
   </div>
 
-  <!-- EMAIL -->
+  <div class="subtitle">
+    SECURE ADMIN ACCESS
+  </div>
 
-  <div class="form-group">
-
+  <div class="input-box">
     <label>Email</label>
-
-    <input
-    type="email"
-    id="email"
-    placeholder="Enter admin email">
-
+    <input type="email" id="email" placeholder="Enter email">
   </div>
 
-  <!-- PASSWORD -->
-
-  <div class="form-group">
-
+  <div class="input-box">
     <label>Password</label>
-
-    <input
-    type="password"
-    id="password"
-    placeholder="Enter password">
-
+    <input type="password" id="password" placeholder="Enter password">
   </div>
 
-  <!-- BUTTON -->
-
-  <button class="login-btn" id="loginBtn">
+  <button class="login-btn" onclick="login()">
     LOGIN
   </button>
 
-  <!-- STATUS -->
-
-  <div class="status" id="status"></div>
+  <div class="error" id="error"></div>
 
 </div>
 
-<!-- FIREBASE -->
+<script>
 
-<script type="module">
+function login(){
 
-/* IMPORT */
+  const email =
+  document.getElementById("email").value;
 
-import { initializeApp }
+  const password =
+  document.getElementById("password").value;
 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  const error =
+  document.getElementById("error");
 
-import {
+  // CHANGE THESE
 
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged
+  const adminEmail =
+  "admin@aura.com";
+
+  const adminPassword =
+  "123456";
+
+
+  if(email === adminEmail &&
+     password === adminPassword){
+
+     localStorage.setItem(
+     "auraAdminLogged","true"
+     );
+
+     window.location.href =
+     "admin.html";
+
+  }
+
+  else{
+
+    error.innerHTML =
+    "Invalid Email or Password";
+
+  }
 
 }
-
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-/* CONFIG */
-
-const firebaseConfig = {
-
-  apiKey: "AIzaSyA5AG9TgVkUA7pPpTeGAP5NieVeBcyrNv8",
-
-  authDomain: "auracyber-lab-post-cms.firebaseapp.com",
-
-  projectId: "auracyber-lab-post-cms",
-
-  storageBucket: "auracyber-lab-post-cms.firebasestorage.app",
-
-  messagingSenderId: "608879796160",
-
-  appId: "1:608879796160:web:840c9fab1f0c2184d3b225"
-
-};
-
-/* INIT */
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-/* AUTO LOGIN */
-
-onAuthStateChanged(auth,(user)=>{
-
-  if(user){
-
-    window.location.href = "admin.html";
-
-  }
-
-});
-
-/* ELEMENTS */
-
-const loginBtn = document.getElementById("loginBtn");
-
-const status = document.getElementById("status");
-
-/* LOGIN */
-
-loginBtn.addEventListener("click",()=>{
-
-  const email = document.getElementById("email").value;
-
-  const password = document.getElementById("password").value;
-
-  if(!email || !password){
-
-    status.innerHTML = "Fill all fields.";
-
-    return;
-
-  }
-
-  signInWithEmailAndPassword(auth,email,password)
-
-  .then(()=>{
-
-    status.innerHTML = "Login success.";
-
-    setTimeout(()=>{
-
-      window.location.href = "admin.html";
-
-    },1000);
-
-  })
-
-  .catch((error)=>{
-
-    status.innerHTML = error.message;
-
-  });
-
-});
 
 </script>
 
