@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AURA CYBER LAB | ADMIN PANEL</title>
+<title>AURA ADMIN PANEL</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,23 +21,24 @@
 }
 
 body{
-  background:#060816;
-  color:white;
+  background:#070816;
   font-family:'Poppins',sans-serif;
+  color:white;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
   overflow-x:hidden;
 }
-
-/* BACKGROUND */
 
 body::before{
   content:"";
   position:fixed;
   inset:0;
-
   background:
   linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
   linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
   background-size:40px 40px;
   z-index:-2;
 }
@@ -46,170 +47,98 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-
   background:
   radial-gradient(circle at top left,#00ffee22,transparent 30%),
   radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
-
   z-index:-1;
 }
 
-/* CONTAINER */
-
-.container{
-  width:95%;
-  max-width:800px;
-  margin:auto;
-  padding:60px 0;
-}
-
-/* HEADER */
-
-.logo{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.logo h1{
-  font-size:48px;
-  font-family:'Orbitron',sans-serif;
-  color:#00ff88;
-
-  text-shadow:
-  0 0 10px #00ff88,
-  0 0 30px #00ff88;
-}
-
-.logo p{
-  margin-top:12px;
-  color:#9ca3c9;
-  letter-spacing:2px;
-  font-size:14px;
-}
-
-/* PANEL */
-
 .panel{
-  background:rgba(14,16,40,0.85);
+  width:100%;
+  max-width:650px;
+  background:rgba(15,18,40,0.88);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:30px;
-  padding:40px;
+  padding:35px;
   backdrop-filter:blur(14px);
-
-  box-shadow:
-  0 0 30px rgba(0,255,255,0.08);
+  box-shadow:0 0 30px rgba(0,255,255,0.08);
 }
 
-/* FORM */
-
-.form-group{
-  margin-bottom:25px;
+.title{
+  text-align:center;
+  font-size:38px;
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:10px;
+  color:#00ffae;
+  text-shadow:0 0 15px #00ffae;
 }
 
-label{
+.subtitle{
+  text-align:center;
+  color:#9ba3d9;
+  margin-bottom:35px;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+.input-box{
+  margin-bottom:22px;
+}
+
+.input-box label{
   display:block;
-  margin-bottom:12px;
+  margin-bottom:10px;
+  color:#cdd3ff;
   font-size:14px;
-  color:#cfd3ff;
 }
 
-input,
-textarea{
+.input-box input,
+.input-box textarea{
   width:100%;
-  background:#0b1026;
+  background:#10142b;
   border:1px solid rgba(255,255,255,0.08);
   border-radius:18px;
-  padding:18px;
+  padding:16px;
   color:white;
   font-size:15px;
   outline:none;
-  transition:0.3s;
-  font-family:'Poppins',sans-serif;
 }
 
-textarea{
+.input-box textarea{
+  min-height:140px;
   resize:none;
-  min-height:120px;
 }
 
-input:focus,
-textarea:focus{
+.input-box input:focus,
+.input-box textarea:focus{
   border-color:#00ffee;
-
-  box-shadow:
-  0 0 15px rgba(0,255,255,0.2);
+  box-shadow:0 0 15px rgba(0,255,255,0.2);
 }
-
-/* BUTTON */
 
 .upload-btn{
   width:100%;
-  border:none;
   padding:18px;
+  border:none;
   border-radius:20px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-
-  background:linear-gradient(90deg,#00ffee,#ff77ff);
-
+  background:linear-gradient(90deg,#00f7ff,#ff77ff);
   color:#111;
-
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
   transition:0.3s;
+  margin-top:10px;
 }
 
 .upload-btn:hover{
-  transform:scale(1.02);
-
-  box-shadow:
-  0 0 20px rgba(0,255,255,0.4);
+  transform:scale(1.03);
+  box-shadow:0 0 20px #00ffee;
 }
-
-/* STATUS */
 
 .status{
-  margin-top:25px;
+  margin-top:20px;
   text-align:center;
-  font-size:15px;
-  color:#00ff88;
-}
-
-/* LOGOUT */
-
-.logout-btn{
-  position:fixed;
-  top:20px;
-  right:20px;
-
-  background:#ff0055;
-  color:white;
-
-  border:none;
-  padding:12px 18px;
-  border-radius:14px;
-
-  cursor:pointer;
+  color:#00ffae;
   font-weight:600;
-
-  transition:0.3s;
-}
-
-.logout-btn:hover{
-  transform:scale(1.05);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .logo h1{
-    font-size:34px;
-  }
-
-  .panel{
-    padding:25px;
-  }
-
 }
 
 </style>
@@ -217,152 +146,56 @@ textarea:focus{
 </head>
 <body>
 
-<!-- LOGOUT -->
+<div class="panel">
 
-<button class="logout-btn" id="logoutBtn">
-  Logout
-</button>
-
-<div class="container">
-
-  <!-- LOGO -->
-
-  <div class="logo">
-
-    <h1>AURA CYBER LAB</h1>
-
-    <p>
-      ADMIN POST UPLOAD PANEL
-    </p>
-
+  <div class="title">
+    AURA ADMIN
   </div>
 
-  <!-- PANEL -->
-
-  <div class="panel">
-
-    <!-- POST NUMBER -->
-
-    <div class="form-group">
-
-      <label>Post Number</label>
-
-      <input
-      type="text"
-      id="number"
-      placeholder="#007">
-
-    </div>
-
-    <!-- CATEGORY -->
-
-    <div class="form-group">
-
-      <label>Category</label>
-
-      <input
-      type="text"
-      id="category"
-      placeholder="ETHICAL">
-
-    </div>
-
-    <!-- TITLE -->
-
-    <div class="form-group">
-
-      <label>Post Title</label>
-
-      <input
-      type="text"
-      id="title"
-      placeholder="Cyber Security Basics">
-
-    </div>
-
-    <!-- DESCRIPTION -->
-
-    <div class="form-group">
-
-      <label>Description</label>
-
-      <textarea
-      id="description"
-      placeholder="Write post description..."></textarea>
-
-    </div>
-
-    <!-- DATE -->
-
-    <div class="form-group">
-
-      <label>Date</label>
-
-      <input
-      type="text"
-      id="date"
-      placeholder="MAY 2026">
-
-    </div>
-
-    <!-- LINK -->
-
-    <div class="form-group">
-
-      <label>Article Link</label>
-
-      <input
-      type="text"
-      id="link"
-      placeholder="article.html">
-
-    </div>
-
-    <!-- BUTTON -->
-
-    <button class="upload-btn" id="uploadBtn">
-      UPLOAD POST
-    </button>
-
-    <!-- STATUS -->
-
-    <div class="status" id="status"></div>
-
+  <div class="subtitle">
+    FIREBASE POST MANAGEMENT SYSTEM
   </div>
+
+  <div class="input-box">
+    <label>Post Title</label>
+    <input type="text" id="title" placeholder="Enter title">
+  </div>
+
+  <div class="input-box">
+    <label>Description</label>
+    <textarea id="description" placeholder="Enter description"></textarea>
+  </div>
+
+  <div class="input-box">
+    <label>Article Link</label>
+    <input type="text" id="link" placeholder="https://example.com">
+  </div>
+
+  <div class="input-box">
+    <label>Tag</label>
+    <input type="text" id="tag" placeholder="ETHICAL / NEWS / TOOLS">
+  </div>
+
+  <button class="upload-btn" onclick="uploadPost()">
+    UPLOAD POST
+  </button>
+
+  <div class="status" id="status"></div>
 
 </div>
 
-<!-- FIREBASE -->
-
 <script type="module">
 
-/* IMPORTS */
-
 import { initializeApp }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-
   getFirestore,
   collection,
   addDoc
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import {
-
-  getAuth,
-  onAuthStateChanged,
-  signOut
-
-}
-
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-/* CONFIG */
 
 const firebaseConfig = {
 
@@ -380,59 +213,32 @@ const firebaseConfig = {
 
 };
 
-/* INIT */
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-const auth = getAuth(app);
 
-/* LOGIN CHECK */
+window.uploadPost = async function(){
 
-onAuthStateChanged(auth,(user)=>{
+  const title =
+  document.getElementById("title").value;
 
-  if(!user){
+  const description =
+  document.getElementById("description").value;
 
-    window.location.href = "login.html";
+  const link =
+  document.getElementById("link").value;
 
-  }
+  const tag =
+  document.getElementById("tag").value;
 
-});
+  const status =
+  document.getElementById("status");
 
-/* ELEMENTS */
+  if(!title || !description || !link){
 
-const uploadBtn = document.getElementById("uploadBtn");
-
-const status = document.getElementById("status");
-
-/* UPLOAD POST */
-
-uploadBtn.addEventListener("click", async()=>{
-
-  const number = document.getElementById("number").value;
-
-  const category = document.getElementById("category").value;
-
-  const title = document.getElementById("title").value;
-
-  const description = document.getElementById("description").value;
-
-  const date = document.getElementById("date").value;
-
-  const link = document.getElementById("link").value;
-
-  if(
-    !number ||
-    !category ||
-    !title ||
-    !description ||
-    !date ||
-    !link
-  ){
-
-    status.innerHTML = "Fill all fields.";
-
+    status.innerHTML = "Fill all fields!";
     return;
 
   }
@@ -441,23 +247,19 @@ uploadBtn.addEventListener("click", async()=>{
 
     await addDoc(collection(db,"posts"),{
 
-      number,
-      category,
       title,
       description,
-      date,
       link,
-      createdAt:Date.now()
+      tag
 
     });
 
-    status.innerHTML = "Post uploaded successfully.";
+    status.innerHTML = "Post Uploaded Successfully 🔥";
 
-    document.querySelectorAll("input, textarea").forEach(el=>{
-
-      el.value = "";
-
-    });
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("link").value = "";
+    document.getElementById("tag").value = "";
 
   }
 
@@ -467,22 +269,7 @@ uploadBtn.addEventListener("click", async()=>{
 
   }
 
-});
-
-/* LOGOUT */
-
-const logoutBtn = document.getElementById("logoutBtn");
-
-logoutBtn.addEventListener("click",()=>{
-
-  signOut(auth)
-  .then(()=>{
-
-    window.location.href = "login.html";
-
-  });
-
-});
+}
 
 </script>
 
