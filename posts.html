@@ -415,13 +415,14 @@ document.getElementById("postsContainer");
 
 async function loadPosts(){
 
-const q = query(
-  collection(db,"posts"),
-  orderBy("createdAt","asc")
-);
+  const querySnapshot =
+  await getDocs(collection(db,"posts"));
 
-const querySnapshot =
-await getDocs(q);
+  const postsContainer =
+  document.getElementById("postsContainer");
+
+  postsContainer.innerHTML = "";
+
   let count = 1;
 
   querySnapshot.forEach((doc)=>{
@@ -429,7 +430,7 @@ await getDocs(q);
     const post = doc.data();
 
     postsContainer.innerHTML += `
-
+    
     <div class="card">
 
       <div>
@@ -443,18 +444,18 @@ await getDocs(q);
         </div>
 
         <div class="card-title">
-          ${post.title}
+          ${post.title || ""}
         </div>
 
         <div class="card-desc">
-          ${post.description}
+          ${post.description || ""}
         </div>
 
       </div>
 
       <div class="card-info">
 
-        <a href="${post.link}"
+        <a href="${post.link || "#"}"
         target="_blank"
         class="read-btn">
 
@@ -479,7 +480,6 @@ await getDocs(q);
 }
 
 loadPosts();
-
 </script>
 
 <!-- SECURITY -->
