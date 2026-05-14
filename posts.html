@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,129 +21,70 @@
 }
 
 body{
+
     background:#050816;
     color:white;
-    font-family:'Orbitron',sans-serif;
     overflow-x:hidden;
-    user-select:none;
+
+    font-family:'Poppins',sans-serif;
 }
 
-/* BACKGROUND GLOW */
+/* BACKGROUND */
 
 body::before{
+
     content:'';
+
     position:fixed;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#00ffee33,transparent 70%);
-    top:-200px;
-    left:-200px;
-    z-index:-1;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#00ffee22,transparent 30%),
+    radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
+
+    z-index:-2;
 }
 
 body::after{
+
     content:'';
+
     position:fixed;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#ff00ff22,transparent 70%);
-    bottom:-250px;
-    right:-250px;
+
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size:40px 40px;
+
     z-index:-1;
 }
 
 /* HEADER */
 
-header{
+.header{
+
     text-align:center;
-    padding:80px 20px 50px;
+
+    padding:80px 20px 60px;
 }
 
 .logo{
-    font-size:55px;
+
+    font-size:58px;
+
+    font-family:'Orbitron',sans-serif;
+
     font-weight:900;
-
-    background:linear-gradient(90deg,#00ffe7,#ff4df8,#ffe600);
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:
-    0 0 20px rgba(0,255,255,0.4),
-    0 0 40px rgba(255,0,255,0.3);
-}
-
-.sub{
-    margin-top:18px;
-    color:#9ca3af;
-    font-size:14px;
-    letter-spacing:2px;
-}
-
-/* GRID */
-
-.container{
-    width:92%;
-    max-width:1450px;
-    margin:auto;
-    padding-bottom:100px;
-}
-
-.posts-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
-}
-
-/* CARD */
-
-.post-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:32px;
-    padding:35px;
-    min-height:430px;
-
-    background:rgba(15,15,35,0.85);
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(18px);
-
-    transition:0.4s;
-
-    box-shadow:
-    0 0 20px rgba(0,255,255,0.08),
-    0 0 40px rgba(255,0,255,0.05);
-}
-
-.post-card:hover{
-
-    transform:
-    translateY(-12px)
-    scale(1.02);
-
-    box-shadow:
-    0 0 30px rgba(0,255,255,0.25),
-    0 0 80px rgba(255,0,255,0.18);
-}
-
-/* NUMBER */
-
-.post-number{
-
-    font-size:78px;
-    font-weight:900;
-    line-height:1;
-
-    margin-bottom:22px;
 
     background:
     linear-gradient(
     90deg,
-    #00ffcc,
-    #00e1ff,
-    #ff6bff,
+    #00ffee,
+    #ff00ff,
     #ffe600
     );
 
@@ -151,62 +92,206 @@ header{
     -webkit-text-fill-color:transparent;
 
     text-shadow:
-    0 0 20px rgba(0,255,255,0.4),
-    0 0 45px rgba(255,0,255,0.3);
+    0 0 25px rgba(0,255,255,0.4);
+}
+
+.subtitle{
+
+    margin-top:15px;
+
+    color:#9ca3af;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+}
+
+/* GRID */
+
+.posts-grid{
+
+    width:92%;
+
+    max-width:1500px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    padding-bottom:80px;
+}
+
+/* CARD */
+
+.post-card{
+
+    position:relative;
+
+    background:
+    rgba(15,15,35,0.78);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(18px);
+
+    padding:35px;
+
+    min-height:500px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:0.4s;
+}
+
+.post-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    box-shadow:
+    0 0 40px rgba(0,255,255,0.25);
+}
+
+.post-card::before{
+
+    content:'';
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    background:
+    radial-gradient(circle,#00ffee22,transparent 70%);
+
+    top:-120px;
+    right:-100px;
+}
+
+/* NUMBER */
+
+.post-number{
+
+    font-size:92px;
+
+    line-height:1;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-weight:900;
+
+    margin-bottom:22px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #00ffee,
+    #00bfff,
+    #ff00ff,
+    #ffe600
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 25px rgba(0,255,255,0.45);
 }
 
 /* TAG */
 
 .post-tag{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:9px 18px;
+    align-items:center;
+
+    gap:10px;
+
+    background:#00ff8830;
+
+    color:#7bffbb;
+
+    width:max-content;
+
+    padding:10px 22px;
 
     border-radius:50px;
-
-    background:#103b2f;
-
-    color:#6affb8;
 
     font-size:12px;
 
     letter-spacing:3px;
 
-    margin-bottom:28px;
+    margin-bottom:30px;
 }
 
-/* TITLE */
+.post-tag::before{
+
+    content:'';
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#00ff99;
+
+    box-shadow:
+    0 0 10px #00ff99;
+}
+
+/* CONTENT */
+
+.post-content{
+
+    flex:1;
+}
 
 .post-title{
 
-    font-size:42px;
+    font-size:48px;
 
     line-height:1.1;
 
-    font-weight:800;
+    margin-bottom:20px;
 
-    margin-bottom:18px;
+    font-family:'Orbitron',sans-serif;
 
-    color:white;
+    font-weight:700;
 }
-
-/* DESCRIPTION */
 
 .post-desc{
 
-    color:#c7c7c7;
-
-    font-size:15px;
+    color:#d4d4d4;
 
     line-height:1.9;
 
-    margin-bottom:45px;
+    font-size:17px;
+
+    min-height:90px;
 }
 
 /* FOOTER */
 
 .post-footer{
+
+    margin-top:40px;
 
     display:flex;
 
@@ -214,81 +299,186 @@ header{
 
     align-items:center;
 
-    margin-top:auto;
+    gap:20px;
 }
 
 .post-date{
 
-    color:#c4c4c4;
+    color:#c9c9c9;
 
-    font-size:13px;
+    font-size:14px;
 
-    letter-spacing:2px;
+    line-height:1.4;
+
+    text-align:right;
+
+    font-family:'Orbitron',sans-serif;
 }
 
 /* BUTTON */
 
 .read-btn{
 
-    border:none;
+    display:inline-block;
 
-    padding:15px 28px;
+    padding:18px 35px;
 
-    border-radius:16px;
+    border-radius:18px;
 
-    cursor:pointer;
-
-    font-weight:700;
-
-    font-family:'Orbitron',sans-serif;
+    text-decoration:none;
 
     background:
     linear-gradient(
     90deg,
-    #00ffe0,
-    #ff72f8
+    #00ffee,
+    #ffd6f7
     );
 
-    color:black;
+    color:#06111d;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-weight:700;
 
     transition:0.3s;
 
     box-shadow:
-    0 0 20px rgba(0,255,255,0.25);
+    0 0 25px rgba(0,255,255,0.3);
 }
 
 .read-btn:hover{
 
     transform:scale(1.08);
-
-    box-shadow:
-    0 0 35px rgba(255,0,255,0.3);
 }
 
-/* AD SECTION */
+/* =========================
+AD SECTION
+========================= */
+
+.ad-section{
+
+  width:100%;
+
+  padding:20px 20px 100px;
+
+  display:flex;
+
+  justify-content:center;
+}
 
 .ad-box{
 
-    margin-top:70px;
+  width:100%;
 
-    padding:35px;
+  max-width:1200px;
 
-    border-radius:28px;
+  padding:50px;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,0.03);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.ad-box::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  radial-gradient(circle at top left,#00ffee22,transparent 40%),
+  radial-gradient(circle at bottom right,#ff00ff22,transparent 40%);
+
+  pointer-events:none;
+}
+
+.ad-label{
+
+  display:inline-block;
+
+  padding:8px 20px;
+
+  border-radius:50px;
+
+  background:#00ff99;
+
+  color:#000;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  margin-bottom:20px;
+}
+
+.ad-box h2{
+
+  color:#fff;
+
+  font-size:38px;
+
+  margin-bottom:15px;
+
+  font-family:'Orbitron',sans-serif;
+}
+
+.ad-box p{
+
+  color:#bbb;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  max-width:700px;
+
+  margin:auto;
+
+  margin-bottom:35px;
+}
+
+.ad-container{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  overflow:hidden;
+}
+
+/* FOOTER */
+
+.footer{
 
     text-align:center;
 
-    background:rgba(255,255,255,0.03);
+    padding:40px 20px;
 
-    border:1px solid rgba(255,255,255,0.08);
+    border-top:
+    1px solid rgba(255,255,255,0.08);
 
     color:#9ca3af;
+
+    font-size:14px;
 }
 
-/* COPY PROTECT */
-
-img{
-    pointer-events:none;
-}
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -296,12 +486,29 @@ img{
         font-size:38px;
     }
 
-    .post-title{
-        font-size:32px;
+    .post-number{
+        font-size:70px;
     }
 
-    .post-number{
-        font-size:64px;
+    .post-title{
+        font-size:34px;
+    }
+
+    .post-footer{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .post-date{
+        text-align:left;
+    }
+
+    .ad-box{
+      padding:35px 20px;
+    }
+
+    .ad-box h2{
+      font-size:28px;
     }
 
 }
@@ -312,29 +519,31 @@ img{
 
 <body>
 
-<header>
+<!-- HEADER -->
+
+<section class="header">
 
     <div class="logo">
         AURA CYBER LAB
     </div>
 
-    <div class="sub">
+    <div class="subtitle">
         ADVANCED ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
     </div>
 
-</header>
+</section>
 
-<section class="container">
+<!-- POSTS -->
 
-    <div class="posts-grid">
+<section class="posts-grid">
 
-        <!-- CARD 001 -->
+    <!-- CARD -->
 
-        <div class="post-card">
+    <div class="post-card">
 
-            <div class="post-number">
-                #001
-            </div>
+        <div class="post-content">
+
+            <div class="post-number">#001</div>
 
             <div class="post-tag">
                 WELCOME
@@ -345,30 +554,32 @@ img{
             </div>
 
             <div class="post-desc">
-                ඔබ මේ web site එකට සාදරයෙන් පිළිගන්නවා
-            </div>
-
-            <div class="post-footer">
-
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
-
-                <div class="post-date">
-                    MAY 2026
-                </div>
-
+                අපේ නව web site එකට සාදරයෙන් පිළිගන්නවා.
             </div>
 
         </div>
 
-        <!-- CARD 002 -->
+        <div class="post-footer">
 
-        <div class="post-card">
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
-            <div class="post-number">
-                #002
+            <div class="post-date">
+                MAY <br> 2026
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="post-card">
+
+        <div class="post-content">
+
+            <div class="post-number">#002</div>
 
             <div class="post-tag">
                 BASICS
@@ -379,30 +590,32 @@ img{
             </div>
 
             <div class="post-desc">
-                Hackin පිළිබද මුලික හැදින්වීම
-            </div>
-
-            <div class="post-footer">
-
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
-
-                <div class="post-date">
-                    MAY 2026
-                </div>
-
+                Hackin පිළිබද මුලික හැදින්වීම.
             </div>
 
         </div>
 
-        <!-- CARD 003 -->
+        <div class="post-footer">
 
-        <div class="post-card">
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
-            <div class="post-number">
-                #003
+            <div class="post-date">
+                MAY <br> 2026
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="post-card">
+
+        <div class="post-content">
+
+            <div class="post-number">#003</div>
 
             <div class="post-tag">
                 LEGAL
@@ -413,30 +626,32 @@ img{
             </div>
 
             <div class="post-desc">
-                Hacking වල නීතිමය පැත්ත
-            </div>
-
-            <div class="post-footer">
-
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
-
-                <div class="post-date">
-                    MAY 2026
-                </div>
-
+                Hacking වල නීතිමය පැත්ත.
             </div>
 
         </div>
 
-        <!-- CARD 004 -->
+        <div class="post-footer">
 
-        <div class="post-card">
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
-            <div class="post-number">
-                #004
+            <div class="post-date">
+                MAY <br> 2026
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="post-card">
+
+        <div class="post-content">
+
+            <div class="post-number">#004</div>
 
             <div class="post-tag">
                 INTERMEDIATE
@@ -447,30 +662,32 @@ img{
             </div>
 
             <div class="post-desc">
-                හැකර්වරුන් වර්ග
-            </div>
-
-            <div class="post-footer">
-
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
-
-                <div class="post-date">
-                    MAY 2026
-                </div>
-
+                හැකර්වරුන් වර්ග.
             </div>
 
         </div>
 
-        <!-- CARD 005 -->
+        <div class="post-footer">
 
-        <div class="post-card">
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
-            <div class="post-number">
-                #005
+            <div class="post-date">
+                MAY <br> 2026
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="post-card">
+
+        <div class="post-content">
+
+            <div class="post-number">#005</div>
 
             <div class="post-tag">
                 GROUPS
@@ -481,30 +698,32 @@ img{
             </div>
 
             <div class="post-desc">
-                Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ Hacking කණ්ඩායම්
-            </div>
-
-            <div class="post-footer">
-
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
-
-                <div class="post-date">
-                    MAY 2026
-                </div>
-
+                Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ hacking groups.
             </div>
 
         </div>
 
-        <!-- CARD 006 -->
+        <div class="post-footer">
 
-        <div class="post-card">
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
-            <div class="post-number">
-                #006
+            <div class="post-date">
+                MAY <br> 2026
             </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="post-card">
+
+        <div class="post-content">
+
+            <div class="post-number">#006</div>
 
             <div class="post-tag">
                 ETHICAL
@@ -515,38 +734,75 @@ img{
             </div>
 
             <div class="post-desc">
-                What IS Cyber Crime?
+                What is cyber crime?
             </div>
 
-            <div class="post-footer">
+        </div>
 
-                <button class="read-btn">
-                    READ ARTICLE →
-                </button>
+        <div class="post-footer">
 
-                <div class="post-date">
-                    MAY 2026
-                </div>
+            <a href="#" class="read-btn">
+                READ ARTICLE →
+            </a>
 
+            <div class="post-date">
+                MAY <br> 2026
             </div>
 
         </div>
 
     </div>
 
-    <!-- ADS -->
+</section>
 
-    <div class="ad-box">
+<!-- AD SECTION -->
 
-        Advertisement Area
+<section class="ad-section">
 
-        <br><br>
+  <div class="ad-box">
 
-        Add Adsterra / Adzilla banners here
+    <div class="ad-label">
+      SPONSORED
+    </div>
+
+    <h2>
+      AURA CYBER LAB ADS
+    </h2>
+
+    <p>
+      Promote your cyber tools, hosting services, VPN products,
+      courses or technology brand here.
+    </p>
+
+    <!-- ADSTERRA -->
+
+    <div class="ad-container">
+
+      <script>
+        atOptions = {
+          'key' : 'YOUR_AD_KEY',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+
+      <script src="//www.highperformanceformat.com/YOUR_AD_KEY/invoke.js"></script>
 
     </div>
 
+  </div>
+
 </section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
+
+</footer>
 
 <script>
 
@@ -556,13 +812,13 @@ document.addEventListener('contextmenu',e=>{
     e.preventDefault();
 });
 
-/* TEXT COPY DISABLE */
+/* COPY DISABLE */
 
 document.addEventListener('copy',e=>{
     e.preventDefault();
 });
 
-/* DEV TOOLS BLOCK */
+/* CTRL U + F12 */
 
 document.onkeydown=function(e){
 
