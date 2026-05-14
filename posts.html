@@ -4,7 +4,7 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  
 <title>AURA CYBER LAB | POSTS</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -299,7 +299,7 @@ body::after{
 
 <!-- POSTS -->
 
-<div class="posts-grid">
+<div class="posts-grid" id="postsContainer">
 
   <!-- CARD -->
 
@@ -354,7 +354,7 @@ body::after{
       </div>
 
       <div class="card-desc">
-        Hackin පිළිබඳ මූලික හැදින්වීම.
+        Hacking පිළිබඳ මූලික හැදින්වීම.
       </div>
 
     </div>
@@ -415,120 +415,6 @@ body::after{
 
   </div>
 
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#004</div>
-
-      <div class="tag">INTERMEDIATE</div>
-
-      <div class="card-title">
-        Types Of Hackers
-      </div>
-
-      <div class="card-desc">
-        Hackers වර්ග හඳුනාගනිමු.
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-003-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#005</div>
-
-      <div class="tag">GROUPS</div>
-
-      <div class="card-title">
-        Hacktivist Groups
-      </div>
-
-      <div class="card-desc">
-        Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ Hacking කණ්ඩායම්.
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-005-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#006</div>
-
-      <div class="tag">ETHICAL</div>
-
-      <div class="card-title">
-        Cyber Crime and Ethical Hacking
-      </div>
-
-      <div class="card-desc">
-        What is Cyber Crime?
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-006-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <!-- ADS -->
@@ -540,8 +426,6 @@ body::after{
     <div class="ad-title">
       AURA CYBER LAB ADS
     </div>
-
-    <!-- YOUR AD CODE -->
 
     <script>
       atOptions = {
@@ -565,36 +449,109 @@ body::after{
   © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
 </div>
 
-  <script src="https://pl29427894.profitablecpmratenetwork.com/09/ef/a9/09efa98a2be1686826adefc5e58812f6.js"></script>
+<script src="https://pl29427894.profitablecpmratenetwork.com/09/ef/a9/09efa98a2be1686826adefc5e58812f6.js"></script>
 
-<script>
-const postsContainer = document.getElementById("postsContainer");
+<!-- FIREBASE POSTS -->
 
-const posts = JSON.parse(localStorage.getItem("posts")) || [];
+<script type="module">
 
-postsContainer.innerHTML = "";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-posts.reverse().forEach(post => {
-  postsContainer.innerHTML += `
-    <div class="bg-[#111] rounded-2xl overflow-hidden border border-cyan-500/20">
-      
-      <img src="${post.image}" class="w-full h-52 object-cover">
+import {
+  getFirestore,
+  collection,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-      <div class="p-5">
 
-        <h2 class="text-xl font-bold text-cyan-400 mb-2">
+const firebaseConfig = {
+
+  apiKey: "AIzaSyA5AG9TgVkUA7pPpTeGAP5NieVeBcyrNv8",
+  authDomain: "auracyber-lab-post-cms.firebaseapp.com",
+  projectId: "auracyber-lab-post-cms",
+  storageBucket: "auracyber-lab-post-cms.firebasestorage.app",
+  messagingSenderId: "608879796160",
+  appId: "1:608879796160:web:840c9fab1f0c2184d3b225"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const postsContainer =
+document.getElementById("postsContainer");
+
+
+async function loadPosts(){
+
+  const querySnapshot =
+  await getDocs(collection(db,"posts"));
+
+  let count = 4;
+
+  querySnapshot.forEach((doc)=>{
+
+    const post = doc.data();
+
+    postsContainer.innerHTML += `
+
+    <div class="card">
+
+      <div>
+
+        <div class="card-number">
+          #${String(count).padStart(3,'0')}
+        </div>
+
+        <div class="tag">
+          ${post.tag || "NEW"}
+        </div>
+
+        <div class="card-title">
           ${post.title}
-        </h2>
+        </div>
 
-        <p class="text-gray-400">
+        <div class="card-desc">
           ${post.description}
-        </p>
+        </div>
+
+      </div>
+
+      <div class="card-bottom">
+
+        <div class="card-info">
+
+          <a href="${post.link}"
+          class="read-btn">
+
+            READ ARTICLE →
+
+          </a>
+
+          <div class="date">
+            MAY 2026
+          </div>
+
+        </div>
 
       </div>
 
     </div>
-  `;
-});
+
+    `;
+
+    count++;
+
+  });
+
+}
+
+loadPosts();
+
 </script>
 
 </body>
