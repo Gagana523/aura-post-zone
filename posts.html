@@ -382,10 +382,11 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  query,
+  orderBy
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 
 const firebaseConfig = {
 
@@ -414,9 +415,13 @@ document.getElementById("postsContainer");
 
 async function loadPosts(){
 
-  const querySnapshot =
-  await getDocs(collection(db,"posts"));
+const q = query(
+  collection(db,"posts"),
+  orderBy("createdAt","asc")
+);
 
+const querySnapshot =
+await getDocs(q);
   let count = 1;
 
   querySnapshot.forEach((doc)=>{
