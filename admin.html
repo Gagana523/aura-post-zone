@@ -174,6 +174,30 @@ textarea:focus{
   color:#00ff88;
 }
 
+/* LOGOUT */
+
+.logout-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+
+  background:#ff0055;
+  color:white;
+
+  border:none;
+  padding:12px 18px;
+  border-radius:14px;
+
+  cursor:pointer;
+  font-weight:600;
+
+  transition:0.3s;
+}
+
+.logout-btn:hover{
+  transform:scale(1.05);
+}
+
 /* MOBILE */
 
 @media(max-width:768px){
@@ -192,6 +216,12 @@ textarea:focus{
 
 </head>
 <body>
+
+<!-- LOGOUT -->
+
+<button class="logout-btn" id="logoutBtn">
+  Logout
+</button>
 
 <div class="container">
 
@@ -306,16 +336,31 @@ textarea:focus{
 
 <script type="module">
 
-/* FIREBASE IMPORT */
+/* IMPORTS */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp }
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
+
   getFirestore,
   collection,
   addDoc
+
 }
+
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+
+  getAuth,
+  onAuthStateChanged,
+  signOut
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 /* CONFIG */
 
@@ -341,13 +386,27 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
+const auth = getAuth(app);
+
+/* LOGIN CHECK */
+
+onAuthStateChanged(auth,(user)=>{
+
+  if(!user){
+
+    window.location.href = "login.html";
+
+  }
+
+});
+
 /* ELEMENTS */
 
 const uploadBtn = document.getElementById("uploadBtn");
 
 const status = document.getElementById("status");
 
-/* UPLOAD */
+/* UPLOAD POST */
 
 uploadBtn.addEventListener("click", async()=>{
 
@@ -387,7 +446,8 @@ uploadBtn.addEventListener("click", async()=>{
       title,
       description,
       date,
-      link
+      link,
+      createdAt:Date.now()
 
     });
 
@@ -406,6 +466,21 @@ uploadBtn.addEventListener("click", async()=>{
     status.innerHTML = error.message;
 
   }
+
+});
+
+/* LOGOUT */
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click",()=>{
+
+  signOut(auth)
+  .then(()=>{
+
+    window.location.href = "login.html";
+
+  });
 
 });
 
