@@ -2,841 +2,568 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>AURA CYBER LAB | POSTS</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
-
-    font-family:'Poppins',sans-serif;
+  background:#070816;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  color:white;
 }
 
 /* BACKGROUND */
 
 body::before{
-
-    content:'';
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle at top left,#00ffee22,transparent 30%),
-    radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
-
-    z-index:-2;
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:
+  linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:40px 40px;
+  z-index:-2;
 }
 
 body::after{
-
-    content:'';
-
-    position:fixed;
-
-    inset:0;
-
-    background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
-    background-size:40px 40px;
-
-    z-index:-1;
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left,#00ffee22,transparent 30%),
+  radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
+  z-index:-1;
 }
 
 /* HEADER */
 
 .header{
-
-    text-align:center;
-
-    padding:80px 20px 60px;
+  text-align:center;
+  padding:70px 20px 30px;
 }
 
 .logo{
-
-    font-size:58px;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-weight:900;
-
-    background:
-    linear-gradient(
-    90deg,
-    #00ffee,
-    #ff00ff,
-    #ffe600
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:
-    0 0 25px rgba(0,255,255,0.4);
+  font-size:58px;
+  font-family:'Orbitron',sans-serif;
+  font-weight:800;
+  color:#00ff88;
+  text-shadow:
+  0 0 10px #00ff88,
+  0 0 30px #00ff88;
+  margin-bottom:15px;
 }
 
 .subtitle{
-
-    margin-top:15px;
-
-    color:#9ca3af;
-
-    letter-spacing:2px;
-
-    font-size:14px;
+  color:#8d92b3;
+  font-size:14px;
+  letter-spacing:3px;
 }
 
 /* GRID */
 
 .posts-grid{
-
-    width:92%;
-
-    max-width:1500px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-    padding-bottom:80px;
+  width:95%;
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:25px;
+  padding-bottom:70px;
 }
 
 /* CARD */
 
-.post-card{
-
-    position:relative;
-
-    background:
-    rgba(15,15,35,0.78);
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-
-    border-radius:35px;
-
-    overflow:hidden;
-
-    backdrop-filter:blur(18px);
-
-    padding:35px;
-
-    min-height:500px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    transition:0.4s;
+.card{
+  position:relative;
+  background:rgba(16,18,40,0.85);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;
+  padding:28px;
+  min-height:440px;
+  overflow:hidden;
+  backdrop-filter:blur(12px);
+  transition:0.4s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 
-.post-card:hover{
-
-    transform:
-    translateY(-10px)
-    scale(1.02);
-
-    box-shadow:
-    0 0 40px rgba(0,255,255,0.25);
-}
-
-.post-card::before{
-
-    content:'';
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    background:
-    radial-gradient(circle,#00ffee22,transparent 70%);
-
-    top:-120px;
-    right:-100px;
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#00ffee;
+  box-shadow:
+  0 0 30px #00ffee55,
+  0 0 60px #ff00ff22;
 }
 
 /* NUMBER */
 
-.post-number{
+.card-number{
+  font-size:72px;
+  font-weight:800;
+  line-height:1;
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:20px;
 
-    font-size:92px;
+  background:linear-gradient(90deg,#00f7ff,#ff77ff,#ffe600);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 
-    line-height:1;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-weight:900;
-
-    margin-bottom:22px;
-
-    background:
-    linear-gradient(
-    90deg,
-    #00ffee,
-    #00bfff,
-    #ff00ff,
-    #ffe600
-    );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:
-    0 0 25px rgba(0,255,255,0.45);
+  text-shadow:
+  0 0 12px rgba(0,255,255,0.7),
+  0 0 25px rgba(255,0,255,0.4);
 }
 
 /* TAG */
 
-.post-tag{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    background:#00ff8830;
-
-    color:#7bffbb;
-
-    width:max-content;
-
-    padding:10px 22px;
-
-    border-radius:50px;
-
-    font-size:12px;
-
-    letter-spacing:3px;
-
-    margin-bottom:30px;
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#0e8f67;
+  color:white;
+  padding:10px 20px;
+  border-radius:30px;
+  font-size:12px;
+  letter-spacing:3px;
+  width:fit-content;
+  margin-bottom:25px;
 }
 
-.post-tag::before{
-
-    content:'';
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#00ff99;
-
-    box-shadow:
-    0 0 10px #00ff99;
+.tag::before{
+  content:"";
+  width:10px;
+  height:10px;
+  background:#00ffae;
+  border-radius:50%;
+  box-shadow:0 0 10px #00ffae;
 }
 
-/* CONTENT */
+/* TITLE */
 
-.post-content{
-
-    flex:1;
+.card-title{
+  font-size:44px;
+  line-height:1.1;
+  margin-bottom:18px;
+  font-weight:700;
+  font-family:'Orbitron',sans-serif;
+  word-break:break-word;
 }
 
-.post-title{
+/* DESC */
 
-    font-size:48px;
-
-    line-height:1.1;
-
-    margin-bottom:20px;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-weight:700;
+.card-desc{
+  color:#d0d4ef;
+  line-height:1.8;
+  font-size:16px;
+  margin-bottom:35px;
 }
 
-.post-desc{
+/* BOTTOM */
 
-    color:#d4d4d4;
-
-    line-height:1.9;
-
-    font-size:17px;
-
-    min-height:90px;
+.card-bottom{
+  margin-top:auto;
 }
 
-/* FOOTER */
-
-.post-footer{
-
-    margin-top:40px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-}
-
-.post-date{
-
-    color:#c9c9c9;
-
-    font-size:14px;
-
-    line-height:1.4;
-
-    text-align:right;
-
-    font-family:'Orbitron',sans-serif;
+.card-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:25px;
+  flex-wrap:wrap;
+  gap:15px;
 }
 
 /* BUTTON */
 
 .read-btn{
-
-    display:inline-block;
-
-    padding:18px 35px;
-
-    border-radius:18px;
-
-    text-decoration:none;
-
-    background:
-    linear-gradient(
-    90deg,
-    #00ffee,
-    #ffd6f7
-    );
-
-    color:#06111d;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-weight:700;
-
-    transition:0.3s;
-
-    box-shadow:
-    0 0 25px rgba(0,255,255,0.3);
+  text-decoration:none;
+  padding:16px 28px;
+  border-radius:18px;
+  background:linear-gradient(90deg,#00f7ff,#ffd6ff);
+  color:#1b1b1b;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:2px;
+  transition:0.3s;
+  display:inline-block;
 }
 
 .read-btn:hover{
-
-    transform:scale(1.08);
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00ffee;
 }
 
-/* =========================
-AD SECTION
-========================= */
+/* DATE */
+
+.date{
+  font-family:'Orbitron',sans-serif;
+  color:#d5d8ff;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+/* ADS */
 
 .ad-section{
-
-  width:100%;
-
-  padding:20px 20px 100px;
-
-  display:flex;
-
-  justify-content:center;
+  width:95%;
+  max-width:1200px;
+  margin:40px auto 80px;
 }
 
 .ad-box{
-
-  width:100%;
-
-  max-width:1200px;
-
-  padding:50px;
-
-  border-radius:30px;
-
-  background:rgba(255,255,255,0.03);
-
+  background:rgba(16,18,40,0.85);
   border:1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter:blur(10px);
-
+  border-radius:25px;
+  padding:30px;
   text-align:center;
-
-  position:relative;
-
-  overflow:hidden;
+  backdrop-filter:blur(10px);
 }
 
-.ad-box::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-  radial-gradient(circle at top left,#00ffee22,transparent 40%),
-  radial-gradient(circle at bottom right,#ff00ff22,transparent 40%);
-
-  pointer-events:none;
-}
-
-.ad-label{
-
-  display:inline-block;
-
-  padding:8px 20px;
-
-  border-radius:50px;
-
-  background:#00ff99;
-
-  color:#000;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  letter-spacing:2px;
-
-  margin-bottom:20px;
-}
-
-.ad-box h2{
-
-  color:#fff;
-
-  font-size:38px;
-
-  margin-bottom:15px;
-
+.ad-title{
+  font-size:30px;
+  margin-bottom:25px;
   font-family:'Orbitron',sans-serif;
-}
 
-.ad-box p{
-
-  color:#bbb;
-
-  font-size:16px;
-
-  line-height:1.7;
-
-  max-width:700px;
-
-  margin:auto;
-
-  margin-bottom:35px;
-}
-
-.ad-container{
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  overflow:hidden;
+  background:linear-gradient(90deg,#00ffee,#ff77ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 /* FOOTER */
 
 .footer{
-
-    text-align:center;
-
-    padding:40px 20px;
-
-    border-top:
-    1px solid rgba(255,255,255,0.08);
-
-    color:#9ca3af;
-
-    font-size:14px;
+  text-align:center;
+  padding:40px 20px 60px;
+  color:#7c82a5;
+  font-size:14px;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-    .logo{
-        font-size:38px;
-    }
+  .logo{
+    font-size:40px;
+  }
 
-    .post-number{
-        font-size:70px;
-    }
+  .card{
+    min-height:420px;
+    padding:24px;
+  }
 
-    .post-title{
-        font-size:34px;
-    }
+  .card-number{
+    font-size:58px;
+  }
 
-    .post-footer{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .post-date{
-        text-align:left;
-    }
-
-    .ad-box{
-      padding:35px 20px;
-    }
-
-    .ad-box h2{
-      font-size:28px;
-    }
+  .card-title{
+    font-size:32px;
+  }
 
 }
 
 </style>
 
 </head>
-
 <body>
 
 <!-- HEADER -->
 
-<section class="header">
+<div class="header">
 
-    <div class="logo">
-        AURA CYBER LAB
-    </div>
+  <div class="logo">
+    AURA CYBER LAB
+  </div>
 
-    <div class="subtitle">
-        ADVANCED ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
-    </div>
+  <div class="subtitle">
+    ADVANCED ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
+  </div>
 
-</section>
+</div>
 
 <!-- POSTS -->
 
-<section class="posts-grid">
+<div class="posts-grid">
 
-    <!-- CARD -->
+  <!-- CARD -->
 
-    <div class="post-card">
+  <div class="card">
 
-        <div class="post-content">
+    <div>
 
-            <div class="post-number">#001</div>
+      <div class="card-number">#001</div>
 
-            <div class="post-tag">
-                WELCOME
-            </div>
+      <div class="tag">WELCOME</div>
 
-            <div class="post-title">
-                Introduction
-            </div>
+      <div class="card-title">
+        Introduction
+      </div>
 
-            <div class="post-desc">
-                අපේ නව web site එකට සාදරයෙන් පිළිගන්නවා.
-            </div>
-
-        </div>
-
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
+      <div class="card-desc">
+        අපේ නව web site එකට ගොඩක් ආදරයෙන් පිළිගන්නවා.
+      </div>
 
     </div>
 
-    <!-- CARD -->
+    <div class="card-bottom">
 
-    <div class="post-card">
+      <div class="card-info">
 
-        <div class="post-content">
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
 
-            <div class="post-number">#002</div>
-
-            <div class="post-tag">
-                BASICS
-            </div>
-
-            <div class="post-title">
-                Hacking යනු?
-            </div>
-
-            <div class="post-desc">
-                Hackin පිළිබද මුලික හැදින්වීම.
-            </div>
-
+        <div class="date">
+          MAY 2026
         </div>
 
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- CARD -->
-
-    <div class="post-card">
-
-        <div class="post-content">
-
-            <div class="post-number">#003</div>
-
-            <div class="post-tag">
-                LEGAL
-            </div>
-
-            <div class="post-title">
-                Legal Side
-            </div>
-
-            <div class="post-desc">
-                Hacking වල නීතිමය පැත්ත.
-            </div>
-
-        </div>
-
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- CARD -->
-
-    <div class="post-card">
-
-        <div class="post-content">
-
-            <div class="post-number">#004</div>
-
-            <div class="post-tag">
-                INTERMEDIATE
-            </div>
-
-            <div class="post-title">
-                Types Of Hackers
-            </div>
-
-            <div class="post-desc">
-                හැකර්වරුන් වර්ග.
-            </div>
-
-        </div>
-
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- CARD -->
-
-    <div class="post-card">
-
-        <div class="post-content">
-
-            <div class="post-number">#005</div>
-
-            <div class="post-tag">
-                GROUPS
-            </div>
-
-            <div class="post-title">
-                Hacktivist Groups
-            </div>
-
-            <div class="post-desc">
-                Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ hacking groups.
-            </div>
-
-        </div>
-
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- CARD -->
-
-    <div class="post-card">
-
-        <div class="post-content">
-
-            <div class="post-number">#006</div>
-
-            <div class="post-tag">
-                ETHICAL
-            </div>
-
-            <div class="post-title">
-                Cyber Crime and Ethical Hacking
-            </div>
-
-            <div class="post-desc">
-                What is cyber crime?
-            </div>
-
-        </div>
-
-        <div class="post-footer">
-
-            <a href="#" class="read-btn">
-                READ ARTICLE →
-            </a>
-
-            <div class="post-date">
-                MAY <br> 2026
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- AD SECTION -->
-
-<section class="ad-section">
-
-  <div class="ad-box">
-
-    <div class="ad-label">
-      SPONSORED
-    </div>
-
-    <h2>
-      AURA CYBER LAB ADS
-    </h2>
-
-    <p>
-      Promote your cyber tools, hosting services, VPN products,
-      courses or technology brand here.
-    </p>
-
-    <!-- ADSTERRA -->
-
-    <div class="ad-container">
-
-      <script>
-        atOptions = {
-          'key' : 'YOUR_AD_KEY',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-
-      <script src="//www.highperformanceformat.com/YOUR_AD_KEY/invoke.js"></script>
+      </div>
 
     </div>
 
   </div>
 
-</section>
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div>
+
+      <div class="card-number">#002</div>
+
+      <div class="tag">BASICS</div>
+
+      <div class="card-title">
+        Hacking යනු?
+      </div>
+
+      <div class="card-desc">
+        Hackin පිළිබඳ මූලික හැදින්වීම.
+      </div>
+
+    </div>
+
+    <div class="card-bottom">
+
+      <div class="card-info">
+
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
+
+        <div class="date">
+          MAY 2026
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div>
+
+      <div class="card-number">#003</div>
+
+      <div class="tag">LEGAL</div>
+
+      <div class="card-title">
+        Legal Side
+      </div>
+
+      <div class="card-desc">
+        Hacking වල නීතිමය පැත්ත.
+      </div>
+
+    </div>
+
+    <div class="card-bottom">
+
+      <div class="card-info">
+
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
+
+        <div class="date">
+          MAY 2026
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div>
+
+      <div class="card-number">#004</div>
+
+      <div class="tag">INTERMEDIATE</div>
+
+      <div class="card-title">
+        Types Of Hackers
+      </div>
+
+      <div class="card-desc">
+        Hackers වර්ග හඳුනාගනිමු.
+      </div>
+
+    </div>
+
+    <div class="card-bottom">
+
+      <div class="card-info">
+
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
+
+        <div class="date">
+          MAY 2026
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div>
+
+      <div class="card-number">#005</div>
+
+      <div class="tag">GROUPS</div>
+
+      <div class="card-title">
+        Hacktivist Groups
+      </div>
+
+      <div class="card-desc">
+        Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ Hacking කණ්ඩායම්.
+      </div>
+
+    </div>
+
+    <div class="card-bottom">
+
+      <div class="card-info">
+
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
+
+        <div class="date">
+          MAY 2026
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div>
+
+      <div class="card-number">#006</div>
+
+      <div class="tag">ETHICAL</div>
+
+      <div class="card-title">
+        Cyber Crime and Ethical Hacking
+      </div>
+
+      <div class="card-desc">
+        What is Cyber Crime?
+      </div>
+
+    </div>
+
+    <div class="card-bottom">
+
+      <div class="card-info">
+
+        <a href="#" class="read-btn">
+          READ ARTICLE →
+        </a>
+
+        <div class="date">
+          MAY 2026
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ADS -->
+
+<div class="ad-section">
+
+  <div class="ad-box">
+
+    <div class="ad-title">
+      AURA CYBER LAB ADS
+    </div>
+
+    <!-- YOUR AD CODE -->
+
+    <script>
+      atOptions = {
+        'key' : '119fb4ac150fef48eca789044e87a41a',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highperformanceformat.com/119fb4ac150fef48eca789044e87a41a/invoke.js"></script>
+
+  </div>
+
+</div>
 
 <!-- FOOTER -->
 
-<footer class="footer">
-
-    © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
-
-</footer>
-
-<script>
-
-/* RIGHT CLICK DISABLE */
-
-document.addEventListener('contextmenu',e=>{
-    e.preventDefault();
-});
-
-/* COPY DISABLE */
-
-document.addEventListener('copy',e=>{
-    e.preventDefault();
-});
-
-/* CTRL U + F12 */
-
-document.onkeydown=function(e){
-
-    if(e.keyCode==123){
-        return false;
-    }
-
-    if(e.ctrlKey && e.shiftKey && e.keyCode==73){
-        return false;
-    }
-
-    if(e.ctrlKey && e.keyCode==85){
-        return false;
-    }
-
-}
-
-</script>
+<div class="footer">
+  © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
+</div>
 
 </body>
 </html>
