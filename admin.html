@@ -245,14 +245,16 @@ window.uploadPost = async function(){
 
   try{
 
-    await addDoc(collection(db,"posts"),{
+await addDoc(collection(db,"posts"),{
 
-      title,
-      description,
-      link,
-      tag
+  title,
+  description,
+  link,
+  tag,
 
-    });
+  createdAt: Date.now()
+
+});
 
     status.innerHTML = "Post Uploaded Successfully 🔥";
 
