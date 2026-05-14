@@ -1,1 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AURA CYBER LAB | ADMIN PANEL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#060816;
+  color:white;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size:40px 40px;
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top left,#00ffee22,transparent 30%),
+  radial-gradient(circle at bottom right,#ff00ff22,transparent 30%);
+
+  z-index:-1;
+}
+
+/* CONTAINER */
+
+.container{
+  width:95%;
+  max-width:800px;
+  margin:auto;
+  padding:60px 0;
+}
+
+/* HEADER */
+
+.logo{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.logo h1{
+  font-size:48px;
+  font-family:'Orbitron',sans-serif;
+  color:#00ff88;
+
+  text-shadow:
+  0 0 10px #00ff88,
+  0 0 30px #00ff88;
+}
+
+.logo p{
+  margin-top:12px;
+  color:#9ca3c9;
+  letter-spacing:2px;
+  font-size:14px;
+}
+
+/* PANEL */
+
+.panel{
+  background:rgba(14,16,40,0.85);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:30px;
+  padding:40px;
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+  0 0 30px rgba(0,255,255,0.08);
+}
+
+/* FORM */
+
+.form-group{
+  margin-bottom:25px;
+}
+
+label{
+  display:block;
+  margin-bottom:12px;
+  font-size:14px;
+  color:#cfd3ff;
+}
+
+input,
+textarea{
+  width:100%;
+  background:#0b1026;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:18px;
+  color:white;
+  font-size:15px;
+  outline:none;
+  transition:0.3s;
+  font-family:'Poppins',sans-serif;
+}
+
+textarea{
+  resize:none;
+  min-height:120px;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#00ffee;
+
+  box-shadow:
+  0 0 15px rgba(0,255,255,0.2);
+}
+
+/* BUTTON */
+
+.upload-btn{
+  width:100%;
+  border:none;
+  padding:18px;
+  border-radius:20px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+
+  background:linear-gradient(90deg,#00ffee,#ff77ff);
+
+  color:#111;
+
+  transition:0.3s;
+}
+
+.upload-btn:hover{
+  transform:scale(1.02);
+
+  box-shadow:
+  0 0 20px rgba(0,255,255,0.4);
+}
+
+/* STATUS */
+
+.status{
+  margin-top:25px;
+  text-align:center;
+  font-size:15px;
+  color:#00ff88;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .logo h1{
+    font-size:34px;
+  }
+
+  .panel{
+    padding:25px;
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LOGO -->
+
+  <div class="logo">
+
+    <h1>AURA CYBER LAB</h1>
+
+    <p>
+      ADMIN POST UPLOAD PANEL
+    </p>
+
+  </div>
+
+  <!-- PANEL -->
+
+  <div class="panel">
+
+    <!-- POST NUMBER -->
+
+    <div class="form-group">
+
+      <label>Post Number</label>
+
+      <input
+      type="text"
+      id="number"
+      placeholder="#007">
+
+    </div>
+
+    <!-- CATEGORY -->
+
+    <div class="form-group">
+
+      <label>Category</label>
+
+      <input
+      type="text"
+      id="category"
+      placeholder="ETHICAL">
+
+    </div>
+
+    <!-- TITLE -->
+
+    <div class="form-group">
+
+      <label>Post Title</label>
+
+      <input
+      type="text"
+      id="title"
+      placeholder="Cyber Security Basics">
+
+    </div>
+
+    <!-- DESCRIPTION -->
+
+    <div class="form-group">
+
+      <label>Description</label>
+
+      <textarea
+      id="description"
+      placeholder="Write post description..."></textarea>
+
+    </div>
+
+    <!-- DATE -->
+
+    <div class="form-group">
+
+      <label>Date</label>
+
+      <input
+      type="text"
+      id="date"
+      placeholder="MAY 2026">
+
+    </div>
+
+    <!-- LINK -->
+
+    <div class="form-group">
+
+      <label>Article Link</label>
+
+      <input
+      type="text"
+      id="link"
+      placeholder="article.html">
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <button class="upload-btn" id="uploadBtn">
+      UPLOAD POST
+    </button>
+
+    <!-- STATUS -->
+
+    <div class="status" id="status"></div>
+
+  </div>
+
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+/* FIREBASE IMPORT */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* CONFIG */
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyA5AG9TgVkUA7pPpTeGAP5NieVeBcyrNv8",
+
+  authDomain: "auracyber-lab-post-cms.firebaseapp.com",
+
+  projectId: "auracyber-lab-post-cms",
+
+  storageBucket: "auracyber-lab-post-cms.firebasestorage.app",
+
+  messagingSenderId: "608879796160",
+
+  appId: "1:608879796160:web:840c9fab1f0c2184d3b225"
+
+};
+
+/* INIT */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* ELEMENTS */
+
+const uploadBtn = document.getElementById("uploadBtn");
+
+const status = document.getElementById("status");
+
+/* UPLOAD */
+
+uploadBtn.addEventListener("click", async()=>{
+
+  const number = document.getElementById("number").value;
+
+  const category = document.getElementById("category").value;
+
+  const title = document.getElementById("title").value;
+
+  const description = document.getElementById("description").value;
+
+  const date = document.getElementById("date").value;
+
+  const link = document.getElementById("link").value;
+
+  if(
+    !number ||
+    !category ||
+    !title ||
+    !description ||
+    !date ||
+    !link
+  ){
+
+    status.innerHTML = "Fill all fields.";
+
+    return;
+
+  }
+
+  try{
+
+    await addDoc(collection(db,"posts"),{
+
+      number,
+      category,
+      title,
+      description,
+      date,
+      link
+
+    });
+
+    status.innerHTML = "Post uploaded successfully.";
+
+    document.querySelectorAll("input, textarea").forEach(el=>{
+
+      el.value = "";
+
+    });
+
+  }
+
+  catch(error){
+
+    status.innerHTML = error.message;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
