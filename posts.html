@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AURA CYBER LAB | POSTS</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,7 @@ body{
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
   color:white;
+  user-select:none;
 }
 
 /* BACKGROUND */
@@ -82,7 +83,7 @@ body::after{
   max-width:1400px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:25px;
   padding-bottom:70px;
 }
@@ -95,7 +96,7 @@ body::after{
   border:1px solid rgba(255,255,255,0.08);
   border-radius:28px;
   padding:28px;
-  min-height:440px;
+  min-height:430px;
   overflow:hidden;
   backdrop-filter:blur(12px);
   transition:0.4s;
@@ -115,7 +116,7 @@ body::after{
 /* NUMBER */
 
 .card-number{
-  font-size:72px;
+  font-size:68px;
   font-weight:800;
   line-height:1;
   font-family:'Orbitron',sans-serif;
@@ -124,10 +125,6 @@ body::after{
   background:linear-gradient(90deg,#00f7ff,#ff77ff,#ffe600);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-
-  text-shadow:
-  0 0 12px rgba(0,255,255,0.7),
-  0 0 25px rgba(255,0,255,0.4);
 }
 
 /* TAG */
@@ -158,12 +155,11 @@ body::after{
 /* TITLE */
 
 .card-title{
-  font-size:44px;
-  line-height:1.1;
+  font-size:34px;
+  line-height:1.2;
   margin-bottom:18px;
   font-weight:700;
   font-family:'Orbitron',sans-serif;
-  word-break:break-word;
 }
 
 /* DESC */
@@ -171,38 +167,32 @@ body::after{
 .card-desc{
   color:#d0d4ef;
   line-height:1.8;
-  font-size:16px;
+  font-size:15px;
   margin-bottom:35px;
 }
 
 /* BOTTOM */
 
-.card-bottom{
-  margin-top:auto;
-}
-
 .card-info{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-top:25px;
-  flex-wrap:wrap;
   gap:15px;
+  flex-wrap:wrap;
 }
 
 /* BUTTON */
 
 .read-btn{
   text-decoration:none;
-  padding:16px 28px;
+  padding:15px 24px;
   border-radius:18px;
   background:linear-gradient(90deg,#00f7ff,#ffd6ff);
-  color:#1b1b1b;
+  color:#111;
   font-weight:700;
   font-size:14px;
   letter-spacing:2px;
   transition:0.3s;
-  display:inline-block;
 }
 
 .read-btn:hover{
@@ -215,35 +205,8 @@ body::after{
 .date{
   font-family:'Orbitron',sans-serif;
   color:#d5d8ff;
-  font-size:14px;
+  font-size:13px;
   letter-spacing:2px;
-}
-
-/* ADS */
-
-.ad-section{
-  width:95%;
-  max-width:1200px;
-  margin:40px auto 80px;
-}
-
-.ad-box{
-  background:rgba(16,18,40,0.85);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:25px;
-  padding:30px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-}
-
-.ad-title{
-  font-size:30px;
-  margin-bottom:25px;
-  font-family:'Orbitron',sans-serif;
-
-  background:linear-gradient(90deg,#00ffee,#ff77ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
 }
 
 /* FOOTER */
@@ -255,25 +218,14 @@ body::after{
   font-size:14px;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
 
   .logo{
     font-size:40px;
   }
 
-  .card{
-    min-height:420px;
-    padding:24px;
-  }
-
-  .card-number{
-    font-size:58px;
-  }
-
   .card-title{
-    font-size:32px;
+    font-size:28px;
   }
 
 }
@@ -281,7 +233,13 @@ body::after{
 </style>
 
 </head>
-<body>
+
+<body
+oncopy="return false"
+oncut="return false"
+onpaste="return false"
+oncontextmenu="return false"
+>
 
 <!-- HEADER -->
 
@@ -292,156 +250,14 @@ body::after{
   </div>
 
   <div class="subtitle">
-    ADVANCED ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
+    ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
   </div>
 
 </div>
 
 <!-- POSTS -->
 
-<div class="posts-grid" id="postsContainer">
-
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#001</div>
-
-      <div class="tag">WELCOME</div>
-
-      <div class="card-title">
-        Introduction
-      </div>
-
-      <div class="card-desc">
-        අපේ නව web site එකට ගොඩක් ආදරයෙන් පිළිගන්නවා.
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-001-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#002</div>
-
-      <div class="tag">BASICS</div>
-
-      <div class="card-title">
-        Hacking යනු?
-      </div>
-
-      <div class="card-desc">
-        Hacking පිළිබඳ මූලික හැදින්වීම.
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-004-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD -->
-
-  <div class="card">
-
-    <div>
-
-      <div class="card-number">#003</div>
-
-      <div class="tag">LEGAL</div>
-
-      <div class="card-title">
-        Legal Side
-      </div>
-
-      <div class="card-desc">
-        Hacking වල නීතිමය පැත්ත.
-      </div>
-
-    </div>
-
-    <div class="card-bottom">
-
-      <div class="card-info">
-
-        <a href="https://content-002-by-aura-cyber-lab.vercel.app/" class="read-btn">
-          READ ARTICLE →
-        </a>
-
-        <div class="date">
-          MAY 2026
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- ADS -->
-
-<div class="ad-section">
-
-  <div class="ad-box">
-
-    <div class="ad-title">
-      AURA CYBER LAB ADS
-    </div>
-
-    <script>
-      atOptions = {
-        'key' : '119fb4ac150fef48eca789044e87a41a',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highperformanceformat.com/119fb4ac150fef48eca789044e87a41a/invoke.js"></script>
-
-  </div>
-
-</div>
+<div class="posts-grid" id="postsContainer"></div>
 
 <!-- FOOTER -->
 
@@ -449,9 +265,7 @@ body::after{
   © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
 </div>
 
-<script src="https://pl29427894.profitablecpmratenetwork.com/09/ef/a9/09efa98a2be1686826adefc5e58812f6.js"></script>
-
-<!-- FIREBASE POSTS -->
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -469,10 +283,15 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const firebaseConfig = {
 
   apiKey: "AIzaSyA5AG9TgVkUA7pPpTeGAP5NieVeBcyrNv8",
+
   authDomain: "auracyber-lab-post-cms.firebaseapp.com",
+
   projectId: "auracyber-lab-post-cms",
+
   storageBucket: "auracyber-lab-post-cms.firebasestorage.app",
+
   messagingSenderId: "608879796160",
+
   appId: "1:608879796160:web:840c9fab1f0c2184d3b225"
 
 };
@@ -491,7 +310,7 @@ async function loadPosts(){
   const querySnapshot =
   await getDocs(collection(db,"posts"));
 
-  let count = 4;
+  let count = 1;
 
   querySnapshot.forEach((doc)=>{
 
@@ -508,7 +327,7 @@ async function loadPosts(){
         </div>
 
         <div class="tag">
-          ${post.tag || "NEW"}
+          ${post.tag || "AURA"}
         </div>
 
         <div class="card-title">
@@ -521,21 +340,18 @@ async function loadPosts(){
 
       </div>
 
-      <div class="card-bottom">
+      <div class="card-info">
 
-        <div class="card-info">
+        <a href="${post.link}"
+        target="_blank"
+        class="read-btn">
 
-          <a href="${post.link}"
-          class="read-btn">
+          READ ARTICLE →
 
-            READ ARTICLE →
+        </a>
 
-          </a>
-
-          <div class="date">
-            MAY 2026
-          </div>
-
+        <div class="date">
+          MAY 2026
         </div>
 
       </div>
@@ -551,6 +367,27 @@ async function loadPosts(){
 }
 
 loadPosts();
+
+</script>
+
+<!-- SECURITY -->
+
+<script>
+
+document.addEventListener('keydown', function(e){
+
+  if(
+    e.ctrlKey && (
+      e.key === 'c' ||
+      e.key === 'u' ||
+      e.key === 's' ||
+      e.key === 'a'
+    )
+  ){
+    e.preventDefault();
+  }
+
+});
 
 </script>
 
