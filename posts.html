@@ -2,447 +2,583 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AURA CYBER LAB | POSTS</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  background:#050816;
-  color:white;
-  font-family:'Poppins',sans-serif;
-  overflow-x:hidden;
+    background:#050816;
+    color:white;
+    font-family:'Orbitron',sans-serif;
+    overflow-x:hidden;
+    user-select:none;
 }
 
-/* SCROLLBAR */
+/* BACKGROUND GLOW */
 
-::-webkit-scrollbar{
-  width:8px;
+body::before{
+    content:'';
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#00ffee33,transparent 70%);
+    top:-200px;
+    left:-200px;
+    z-index:-1;
 }
 
-::-webkit-scrollbar-thumb{
-  background:linear-gradient(to bottom,#00f0ff,#ff00ea);
-  border-radius:20px;
-}
-
-/* BACKGROUND */
-
-.bg-glow{
-  position:fixed;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  filter:blur(120px);
-  z-index:-1;
-  opacity:0.18;
-}
-
-.bg1{
-  background:#00f0ff;
-  top:-100px;
-  left:-120px;
-}
-
-.bg2{
-  background:#ff00ea;
-  bottom:-150px;
-  right:-100px;
-}
-
-.bg3{
-  background:#00ff88;
-  top:40%;
-  left:40%;
+body::after{
+    content:'';
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#ff00ff22,transparent 70%);
+    bottom:-250px;
+    right:-250px;
+    z-index:-1;
 }
 
 /* HEADER */
 
 header{
-  padding:30px 20px;
-  text-align:center;
+    text-align:center;
+    padding:80px 20px 50px;
 }
 
 .logo{
-  font-size:42px;
-  font-family:'Orbitron',sans-serif;
-  font-weight:800;
-  background:linear-gradient(to right,#00f0ff,#ff00ea,#00ff88);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 25px rgba(0,255,255,0.4);
+    font-size:55px;
+    font-weight:900;
+
+    background:linear-gradient(90deg,#00ffe7,#ff4df8,#ffe600);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 20px rgba(0,255,255,0.4),
+    0 0 40px rgba(255,0,255,0.3);
 }
 
 .sub{
-  margin-top:12px;
-  color:#b8c2ff;
-  font-size:15px;
+    margin-top:18px;
+    color:#9ca3af;
+    font-size:14px;
+    letter-spacing:2px;
 }
 
-/* POSTS GRID */
+/* GRID */
 
-.posts{
-  max-width:1400px;
-  margin:auto;
-  padding:40px 20px 100px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:35px;
+.container{
+    width:92%;
+    max-width:1450px;
+    margin:auto;
+    padding-bottom:100px;
+}
+
+.posts-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
 }
 
 /* CARD */
 
-.card{
-  position:relative;
-  overflow:hidden;
-  border-radius:28px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
-  transition:0.4s;
+.post-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:32px;
+    padding:35px;
+    min-height:430px;
+
+    background:rgba(15,15,35,0.85);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:0.4s;
+
+    box-shadow:
+    0 0 20px rgba(0,255,255,0.08),
+    0 0 40px rgba(255,0,255,0.05);
 }
 
-.card:hover{
-  transform:translateY(-8px) scale(1.01);
-  box-shadow:
-  0 0 30px rgba(0,255,255,0.18),
-  0 0 50px rgba(255,0,234,0.15);
+.post-card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.02);
+
+    box-shadow:
+    0 0 30px rgba(0,255,255,0.25),
+    0 0 80px rgba(255,0,255,0.18);
 }
 
-/* TOP IMAGE */
+/* NUMBER */
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
+.post-number{
+
+    font-size:78px;
+    font-weight:900;
+    line-height:1;
+
+    margin-bottom:22px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #00ffcc,
+    #00e1ff,
+    #ff6bff,
+    #ffe600
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 20px rgba(0,255,255,0.4),
+    0 0 45px rgba(255,0,255,0.3);
 }
 
-/* CARD CONTENT */
+/* TAG */
 
-.content{
-  padding:22px;
+.post-tag{
+
+    display:inline-block;
+
+    padding:9px 18px;
+
+    border-radius:50px;
+
+    background:#103b2f;
+
+    color:#6affb8;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    margin-bottom:28px;
 }
 
-.number{
-  display:inline-block;
-  padding:5px 14px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-  margin-bottom:14px;
-  background:linear-gradient(to right,#00f0ff,#ff00ea);
-  color:white;
+/* TITLE */
+
+.post-title{
+
+    font-size:42px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+    color:white;
 }
 
-.title{
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:14px;
-  line-height:1.3;
+/* DESCRIPTION */
+
+.post-desc{
+
+    color:#c7c7c7;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:45px;
 }
 
-.desc{
-  color:#c9d1ff;
-  font-size:15px;
-  line-height:1.7;
+/* FOOTER */
+
+.post-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:auto;
+}
+
+.post-date{
+
+    color:#c4c4c4;
+
+    font-size:13px;
+
+    letter-spacing:2px;
 }
 
 /* BUTTON */
 
 .read-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 22px;
-  border-radius:14px;
-  font-size:14px;
-  font-weight:600;
-  text-decoration:none;
-  color:white;
-  background:linear-gradient(to right,#00f0ff,#ff00ea);
-  transition:0.3s;
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    font-family:'Orbitron',sans-serif;
+
+    background:
+    linear-gradient(
+    90deg,
+    #00ffe0,
+    #ff72f8
+    );
+
+    color:black;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 20px rgba(0,255,255,0.25);
 }
 
 .read-btn:hover{
-  transform:scale(1.06);
-  box-shadow:0 0 20px rgba(255,0,234,0.4);
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 35px rgba(255,0,255,0.3);
 }
 
-/* ADS */
+/* AD SECTION */
 
 .ad-box{
-  max-width:1200px;
-  margin:0 auto 60px;
-  padding:25px;
-  border-radius:25px;
-  text-align:center;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.07);
-}
 
-.ad-title{
-  font-size:20px;
-  margin-bottom:10px;
-  color:#00ffea;
-}
+    margin-top:70px;
 
-.ad-text{
-  color:#b8c2ff;
-  font-size:14px;
-}
+    padding:35px;
 
-/* FOOTER */
+    border-radius:28px;
 
-footer{
-  padding:35px 20px;
-  text-align:center;
-  border-top:1px solid rgba(255,255,255,0.08);
-  color:#93a0d9;
-  font-size:14px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    color:#9ca3af;
 }
 
 /* COPY PROTECT */
 
 img{
-  user-select:none;
-  pointer-events:none;
+    pointer-events:none;
 }
-
-body{
-  -webkit-user-select:none;
-  user-select:none;
-}
-
-/* MOBILE */
 
 @media(max-width:768px){
 
-  .logo{
-    font-size:30px;
-  }
+    .logo{
+        font-size:38px;
+    }
 
-  .title{
-    font-size:20px;
-  }
+    .post-title{
+        font-size:32px;
+    }
+
+    .post-number{
+        font-size:64px;
+    }
 
 }
 
 </style>
 
 </head>
-<body oncontextmenu="return false">
 
-<!-- GLOW -->
-<div class="bg-glow bg1"></div>
-<div class="bg-glow bg2"></div>
-<div class="bg-glow bg3"></div>
-
-<!-- HEADER -->
+<body>
 
 <header>
 
-  <h1 class="logo">
-    AURA CYBER LAB
-  </h1>
+    <div class="logo">
+        AURA CYBER LAB
+    </div>
 
-  <p class="sub">
-    Advanced Ethical Hacking • Cyber Security • Digital Intelligence
-  </p>
+    <div class="sub">
+        ADVANCED ETHICAL HACKING • CYBER SECURITY • DIGITAL INTELLIGENCE
+    </div>
 
 </header>
 
-<!-- POSTS -->
+<section class="container">
 
-<section class="posts">
+    <div class="posts-grid">
 
-  <!-- CARD 001 -->
+        <!-- CARD 001 -->
 
-  <div class="card">
+        <div class="post-card">
 
-    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop">
+            <div class="post-number">
+                #001
+            </div>
 
-    <div class="content">
+            <div class="post-tag">
+                WELCOME
+            </div>
 
-      <span class="number">
-        POST 001
-      </span>
+            <div class="post-title">
+                Introduction
+            </div>
 
-      <h2 class="title">
-        Introduction To Ethical Hacking
-      </h2>
+            <div class="post-desc">
+                ඔබ මේ web site එකට සාදරයෙන් පිළිගන්නවා
+            </div>
 
-      <p class="desc">
-        Learn the fundamentals of ethical hacking, penetration testing, cyber defense and how hackers think in real-world systems.
-      </p>
+            <div class="post-footer">
 
-      <a href="#" class="read-btn">
-        Read More
-      </a>
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 002 -->
+
+        <div class="post-card">
+
+            <div class="post-number">
+                #002
+            </div>
+
+            <div class="post-tag">
+                BASICS
+            </div>
+
+            <div class="post-title">
+                Hacking යනු?
+            </div>
+
+            <div class="post-desc">
+                Hackin පිළිබද මුලික හැදින්වීම
+            </div>
+
+            <div class="post-footer">
+
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 003 -->
+
+        <div class="post-card">
+
+            <div class="post-number">
+                #003
+            </div>
+
+            <div class="post-tag">
+                LEGAL
+            </div>
+
+            <div class="post-title">
+                Legal Side
+            </div>
+
+            <div class="post-desc">
+                Hacking වල නීතිමය පැත්ත
+            </div>
+
+            <div class="post-footer">
+
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 004 -->
+
+        <div class="post-card">
+
+            <div class="post-number">
+                #004
+            </div>
+
+            <div class="post-tag">
+                INTERMEDIATE
+            </div>
+
+            <div class="post-title">
+                Types Of Hackers
+            </div>
+
+            <div class="post-desc">
+                හැකර්වරුන් වර්ග
+            </div>
+
+            <div class="post-footer">
+
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 005 -->
+
+        <div class="post-card">
+
+            <div class="post-number">
+                #005
+            </div>
+
+            <div class="post-tag">
+                GROUPS
+            </div>
+
+            <div class="post-title">
+                Hacktivist Groups
+            </div>
+
+            <div class="post-desc">
+                Anonymous වගේ ලෝකයේ ප්‍රසිද්ධ Hacking කණ්ඩායම්
+            </div>
+
+            <div class="post-footer">
+
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 006 -->
+
+        <div class="post-card">
+
+            <div class="post-number">
+                #006
+            </div>
+
+            <div class="post-tag">
+                ETHICAL
+            </div>
+
+            <div class="post-title">
+                Cyber Crime and Ethical Hacking
+            </div>
+
+            <div class="post-desc">
+                What IS Cyber Crime?
+            </div>
+
+            <div class="post-footer">
+
+                <button class="read-btn">
+                    READ ARTICLE →
+                </button>
+
+                <div class="post-date">
+                    MAY 2026
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
+    <!-- ADS -->
 
-  <!-- CARD 002 -->
+    <div class="ad-box">
 
-  <div class="card">
+        Advertisement Area
 
-    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop">
+        <br><br>
 
-    <div class="content">
-
-      <span class="number">
-        POST 002
-      </span>
-
-      <h2 class="title">
-        Kali Linux Tools Guide
-      </h2>
-
-      <p class="desc">
-        Explore powerful Kali Linux tools used for reconnaissance, scanning, exploitation and vulnerability assessment.
-      </p>
-
-      <a href="#" class="read-btn">
-        Read More
-      </a>
+        Add Adsterra / Adzilla banners here
 
     </div>
-
-  </div>
-
-  <!-- CARD 003 -->
-
-  <div class="card">
-
-    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
-
-    <div class="content">
-
-      <span class="number">
-        POST 003
-      </span>
-
-      <h2 class="title">
-        Network Security Basics
-      </h2>
-
-      <p class="desc">
-        Understand firewalls, ports, protocols and how network attacks happen across modern infrastructures.
-      </p>
-
-      <a href="#" class="read-btn">
-        Read More
-      </a>
-
-    </div>
-
-  </div>
-
-  <!-- CARD 004 -->
-
-  <div class="card">
-
-    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop">
-
-    <div class="content">
-
-      <span class="number">
-        POST 004
-      </span>
-
-      <h2 class="title">
-        OSINT Investigation Methods
-      </h2>
-
-      <p class="desc">
-        Discover open-source intelligence techniques used to gather public information legally and efficiently.
-      </p>
-
-      <a href="#" class="read-btn">
-        Read More
-      </a>
-
-    </div>
-
-  </div>
 
 </section>
-
-<!-- AD SECTION -->
-
-<section class="ad-box">
-
-  <h2 class="ad-title">
-    Sponsored Section
-  </h2>
-
-  <p class="ad-text">
-    Advertisement space for Adsterra, banners or affiliate promotions.
-  </p>
-
-  <!-- ADSTERRA -->
-
-  <script>
-    atOptions = {
-      'key' : '119fb4ac150fef48eca789044e87a41a',
-      'format' : 'iframe',
-      'height' : 60,
-      'width' : 468,
-      'params' : {}
-    };
-  </script>
-
-  <script src="https://www.highperformanceformat.com/119fb4ac150fef48eca789044e87a41a/invoke.js"></script>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-  © 2026 AURA CYBER LAB — ALL RIGHTS RESERVED
-
-</footer>
-
-<!-- COPY BLOCK -->
 
 <script>
 
-document.addEventListener("keydown",function(e){
+/* RIGHT CLICK DISABLE */
 
-  if(
-    e.ctrlKey &&
-    (
-      e.key === "u" ||
-      e.key === "U" ||
-      e.key === "c" ||
-      e.key === "C" ||
-      e.key === "s" ||
-      e.key === "S"
-    )
-  ){
+document.addEventListener('contextmenu',e=>{
     e.preventDefault();
-  }
-
 });
 
-document.addEventListener("contextmenu",event=>{
-  event.preventDefault();
+/* TEXT COPY DISABLE */
+
+document.addEventListener('copy',e=>{
+    e.preventDefault();
 });
+
+/* DEV TOOLS BLOCK */
+
+document.onkeydown=function(e){
+
+    if(e.keyCode==123){
+        return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode==73){
+        return false;
+    }
+
+    if(e.ctrlKey && e.keyCode==85){
+        return false;
+    }
+
+}
 
 </script>
 
